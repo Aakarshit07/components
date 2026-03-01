@@ -1,54 +1,57 @@
 "use client";
 import { useState } from "react";
 import Accordion from "./accordion";
+import { open } from "fs/promises";
 
 export default function Home() {
-  // Single ID or null (only ONE accordion can be open at a time)
-  const [openId, setOpenId] = useState<number | null>(null);
-
-  const sections = [
+  const [openIds, setOpenIds] = useState<number[]>([]);
+  const section = [
     {
-      head: "Section 1 - What is React?",
+      head: "This is the title of the accordion",
       id: 1,
-      content:
-        "React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small, isolated pieces of code called components.",
+      content: ` Hello Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    Necessitatibus, explicabo vitae architecto a, debitis illo perferendis
+    laborum beatae dolorum minima tempora odit. In.`,
     },
     {
-      head: "Section 2 - What is Next.js?",
-      id: 2,
-      content:
-        "Next.js is a React framework for production. It gives you the best developer experience with all the features you need for production.",
-    },
-    {
-      head: "Section 3 - What is TypeScript?",
+      head: "This is the title of the accordion",
       id: 3,
-      content:
-        "TypeScript is JavaScript with syntax for types. TypeScript is a strongly typed programming language that builds on JavaScript.",
+      content: ` Hello Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    Necessitatibus, explicabo vitae architecto a, debitis illo perferendis
+    laborum beatae dolorum minima tempora odit. In.`,
+    },
+    {
+      head: "This is the title of the accordion",
+      id: 2,
+      content: ` Hello Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    Necessitatibus, explicabo vitae architecto a, debitis illo perferendis
+    laborum beatae dolorum minima tempora odit. In.`,
     },
   ];
 
-  const handleToggle = (id: number) => {
-    // If clicking the open accordion, close it (set to null)
-    // Otherwise, open the clicked one (set to its id)
-    setOpenId(openId === id ? null : id);
+  const handleOpen = (id: number) => {
+    if (openIds.includes(id)) {
+      setOpenIds(openIds.filter((item) => item != id));
+    } else {
+      setOpenIds([...openIds, id]);
+    }
   };
 
   return (
-    <main className="min-w-screen min-h-screen p-8">
-      <h1 className="text-2xl font-bold mb-4">Accordion Demo (Single Open)</h1>
-
-      <div className="space-y-2 max-w-2xl">
-        {sections.map((item) => (
+    <main className="min-w-screen min-h-screen p-2">
+      <h1>Accordion Demo</h1>
+      <br />
+      {section &&
+        section.map((item) => (
           <Accordion
+            header={<div>{item.head}</div>}
+            onOpen={() => handleOpen(item.id)}
+            isOpen={openIds.includes(item.id)}
             key={item.id}
-            header={<div className="font-medium">{item.head}</div>}
-            isOpen={openId === item.id}
-            onToggle={() => handleToggle(item.id)}
           >
-            <div className="text-gray-700">{item.content}</div>
+            <div>{item.content}</div>
           </Accordion>
         ))}
-      </div>
     </main>
   );
 }
