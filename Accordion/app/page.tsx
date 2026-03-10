@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Accordion from "./accordion";
 import { open } from "fs/promises";
+import Tabs from "@/components/tabs/Tabs";
 
 export default function Home() {
   const [openIds, setOpenIds] = useState<number[]>([]);
@@ -29,6 +30,12 @@ export default function Home() {
     },
   ];
 
+  const tabList = [
+    { id: 123, title: "tab1", content: <div>Hello new user 1</div> },
+    { id: 132, title: "tab2", content: <div>Hello new user 2</div> },
+    { id: 432, title: "tab3", content: <div>Hello new user 3</div> },
+  ];
+
   const handleOpen = (id: number) => {
     if (openIds.includes(id)) {
       setOpenIds(openIds.filter((item) => item != id));
@@ -52,6 +59,20 @@ export default function Home() {
             <div>{item.content}</div>
           </Accordion>
         ))}
+      <br />
+      <br />
+      <hr />
+      <br />
+      <br />
+      <br />
+      <hr />
+      <br />
+      <br />
+
+      {/*  */}
+      {/*  */}
+
+      <Tabs tabList={tabList} />
     </main>
   );
 }
