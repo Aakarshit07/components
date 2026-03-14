@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Accordion from "./accordion";
 import Tabs from "@/components/Tabs/Tabs";
 import StartRating from "@/components/StartRating/StartRating";
+import Accordion from "@/components/Accordion/Accordion";
 
 export default function Home() {
   const [openIds, setOpenIds] = useState<number[]>([]);
