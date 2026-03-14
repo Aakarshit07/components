@@ -3,6 +3,7 @@ import { useState } from "react";
 import Tabs from "@/components/Tabs/Tabs";
 import StartRating from "@/components/StartRating/StartRating";
 import Accordion from "@/components/Accordion/Accordion";
+import AutoComplete from "@/components/AutoComplete/AutoComplete";
 
 export default function Home() {
   const [openIds, setOpenIds] = useState<number[]>([]);
@@ -46,6 +47,8 @@ export default function Home() {
 
   return (
     <main className="min-w-screen min-h-screen p-2 bg-white">
+      <AutoComplete />
+
       {/*  */}
 
       <br />
