@@ -3,6 +3,7 @@ import { useState } from "react";
 import Accordion from "./accordion";
 import { open } from "fs/promises";
 import Tabs from "@/components/tabs/Tabs";
+import StartRating from "@/components/StartRating/StartRating";
 
 export default function Home() {
   const [openIds, setOpenIds] = useState<number[]>([]);
@@ -45,7 +46,20 @@ export default function Home() {
   };
 
   return (
-    <main className="min-w-screen min-h-screen p-2">
+    <main className="min-w-screen min-h-screen p-2 bg-white">
+      {/*  */}
+
+      <br />
+      <hr />
+      <br />
+      <br />
+
+      <StartRating />
+
+      <hr />
+      <br />
+      <br />
+
       <h1>Accordion Demo</h1>
       <br />
       {section &&
@@ -69,7 +83,6 @@ export default function Home() {
       <br />
       <br />
 
-      {/*  */}
       {/*  */}
 
       <Tabs tabList={tabList} />
