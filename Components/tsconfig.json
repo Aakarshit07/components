@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/tabs/Tabs.jsx"
+    "components/Tabs/Tabs.jsx"
   ],
   "exclude": ["node_modules"]
 }

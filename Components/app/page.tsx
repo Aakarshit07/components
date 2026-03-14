@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Accordion from "./accordion";
-import { open } from "fs/promises";
-import Tabs from "@/components/tabs/Tabs";
+import Tabs from "@/components/Tabs/Tabs";
 import StartRating from "@/components/StartRating/StartRating";
 
 export default function Home() {
