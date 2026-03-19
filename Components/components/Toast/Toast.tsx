@@ -6,7 +6,7 @@ type ToastProps = {
   message?: string;
   title?: string;
   potition?: string;
-  variant?: string;
+  variant?: "success" | "error" | "info" | "warning";
   onClose: (id: string) => void;
   duration?: number;
   id: string;
