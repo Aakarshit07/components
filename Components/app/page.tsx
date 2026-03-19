@@ -4,9 +4,11 @@ import Tabs from "@/components/tabs/Tabs";
 import StartRating from "@/components/StartRating/StartRating";
 import Accordion from "@/components/Accordion/Accordion";
 import AutoComplete from "@/components/AutoComplete/AutoComplete";
+import { useToast } from "@/components/ToastContext/ToastContext";
 
 export default function Home() {
   const [openIds, setOpenIds] = useState<number[]>([]);
+  const { addToast } = useToast();
   const section = [
     {
       head: "This is the title of the accordion",
@@ -45,8 +47,50 @@ export default function Home() {
     }
   };
 
+    
+
   return (
     <main className="min-w-screen min-h-screen p-2 bg-white">
+
+            <div className="flex gap-2 items-center justify-center p-4 border rounded-md">
+        <button
+          onClick={() =>
+            addToast("This is tester toast", "success", "Test Toast", 3000)
+          }
+          className="cursor-pointer border-green-50 bg-green-400 hover:bg-green-500 text-black rounded-md p-2 "
+        >
+          Success
+        </button>
+
+        <button
+          onClick={() =>
+            addToast("This is tester toast", "info", "Test Toast", 3000)
+          }
+          className="cursor-pointer border-blue-50 bg-blue-400 hover:bg-blue-500 text-black rounded-md p-2 "
+        >
+          Info
+        </button>
+
+        <button
+          onClick={() =>
+            addToast("This is tester toast", "warning", "Test Toast", 3000)
+          }
+          className="cursor-pointer border-orange-50 bg-orange-400 hover:bg-orange-500 text-black rounded-md p-2 "
+        >
+          Warning
+        </button>
+
+        <button
+          onClick={() =>
+            addToast("This is tester toast", "error", "Test Toast", 3000)
+          }
+          className="cursor-pointer border-rose-50 bg-rose-400 hover:bg-rose-500 text-black rounded-md p-2 "
+        >
+          Error
+        </button>
+      </div>
+      
+      
       <AutoComplete />
 
       {/*  */}
