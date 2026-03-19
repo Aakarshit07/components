@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Tabs from "@/components/Tabs/Tabs";
+import Tabs from "@/components/tabs/Tabs";
 import StartRating from "@/components/StartRating/StartRating";
 import Accordion from "@/components/Accordion/Accordion";
 import AutoComplete from "@/components/AutoComplete/AutoComplete";
